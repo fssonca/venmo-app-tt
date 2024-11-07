@@ -1,9 +1,14 @@
 const express = require("express");
-const app = express();
+const router = express.Router();
 
-const UserRetrieveActivity = app.get(
-  "/user/retrieve-activity/:id",
-  (req, res) => {
-    // todo: query activity of the user in DESC order by time
-  }
-);
+router.get("/:id", (req, res) => {
+  const user_id = req.params.id;
+
+  // todo: query activity of the userId in DESC order by time
+  res.json({
+    user_id,
+    activity: [],
+  });
+});
+
+module.exports = router;

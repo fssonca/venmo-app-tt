@@ -1,9 +1,7 @@
 const express = require("express");
-const app = express();
+const router = express.Router();
 
-app.use(express.json()); // <==== parse request body as JSON
-
-const CreateUser = app.post("/create-user", (req, res) => {
+router.post("/", (req, res) => {
   const data = req.body;
 
   // todo: store the user information in a database (mongo, mysql, etc)
@@ -13,4 +11,4 @@ const CreateUser = app.post("/create-user", (req, res) => {
   });
 });
 
-module.exports = CreateUser;
+module.exports = router;
